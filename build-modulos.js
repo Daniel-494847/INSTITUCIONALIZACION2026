@@ -1,5 +1,6 @@
 // Genera una página de QUIZ por cada documento de un módulo (por defecto
-// "normativa-general") a partir de <carpeta>/documentos.js, usando el tema único (style.css).
+// "normativa-general") a partir de <carpeta>/documentos.js, usando el tema único
+// (style.css) sobre Bootstrap 5 en modo oscuro.
 //
 //   node build-modulos.js [carpeta]
 //
@@ -23,29 +24,36 @@ const slug = s => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 // Nombre de archivo destino: usa el campo opcional "f" del documento o un slug del nombre
 const archivo = d => (d.f || slug(d.n)) + '.html';
 
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
 function paginaQuiz(doc) {
     const data = JSON.stringify(doc).replace(/<\//g, '<\\/');
     return `<!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${doc.n}</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>${esc(doc.n)}</title>
+    <meta name="description" content="${esc(doc.n)} — ${esc(doc.d)}. Cuestionario interactivo de ${doc.q.length} preguntas.">
+    <meta property="og:title" content="${esc(doc.n)}">
+    <meta property="og:description" content="${esc(doc.d)} · ${doc.q.length} preguntas — Sistema de Capacitación.">
+    <meta property="og:type" content="website">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-    <div class="container">
-        <header class="header">
-            <a href="../index.html" class="btn-back">
-                <i class="fas fa-arrow-left"></i> Volver al Panel
-            </a>
-            <h1 class="header-title">${doc.n}</h1>
-            <p class="header-subtitle">${doc.d} · ${doc.q.length} preguntas</p>
+<body class="bg-body-tertiary">
+    <div class="container py-4">
+        <a href="../index.html" class="btn btn-sm btn-outline-secondary mb-4" onclick="if(history.length>1){history.back();return false;}">
+            <i class="fas fa-arrow-left"></i> Volver al Panel
+        </a>
+        <header class="text-center mb-4">
+            <h1 class="h3 fw-bold">${esc(doc.n)}</h1>
+            <p class="text-body-secondary mb-0">${esc(doc.d)} · ${doc.q.length} preguntas</p>
         </header>
 
-        <main id="app"></main>
+        <main id="app" class="mx-auto" style="max-width: 820px;"></main>
     </div>
 
     <script>
@@ -60,21 +68,24 @@ function paginaQuiz(doc) {
     }
     function show(){
         const q=st.qs[st.n];
-        app.innerHTML='<div class="bar"><div style="width:'+(st.n/st.qs.length*100)+'%"></div></div>'+
-        '<div class="box"><small>Pregunta '+(st.n+1)+' de '+st.qs.length+'</small><h3>'+q.t+'</h3><div id="o"></div><div id="f"></div></div>';
+        app.innerHTML='<div class="progress mb-4" role="progressbar" aria-label="Avance" aria-valuenow="'+st.n+'" aria-valuemin="0" aria-valuemax="'+st.qs.length+'" style="height:8px"><div class="progress-bar" style="width:'+(st.n/st.qs.length*100)+'%"></div></div>'+
+        '<div class="card shadow-sm"><div class="card-body p-4">'+
+        '<div class="text-uppercase text-body-secondary fw-semibold mb-2" style="font-size:.75rem;letter-spacing:.05em">Pregunta '+(st.n+1)+' de '+st.qs.length+'</div>'+
+        '<h2 class="h5 fw-semibold mb-3">'+q.t+'</h2>'+
+        '<div id="o" class="d-grid gap-2"></div><div id="f"></div></div></div>';
         const o=document.getElementById("o");
-        q.o.forEach(t=>{const b=document.createElement("button");b.className="opt";b.textContent=t;b.onclick=()=>answer(b,t,q);o.appendChild(b)});
+        q.o.forEach(t=>{const b=document.createElement("button");b.type="button";b.className="btn btn-outline-secondary text-start";b.textContent=t;b.onclick=()=>answer(b,t,q);o.appendChild(b)});
     }
     function answer(b,t,q){
-        [...document.querySelectorAll(".opt")].forEach(x=>{x.disabled=true;if(x.textContent===q.c)x.classList.add("ok")});
-        if(t===q.c)st.ok++;else b.classList.add("ko");
+        [...document.querySelectorAll("#o .btn")].forEach(x=>{x.disabled=true;if(x.textContent===q.c)x.className="btn btn-success text-start"});
+        if(t===q.c)st.ok++;else b.className="btn btn-danger text-start";
         const last=st.n===st.qs.length-1;
-        document.getElementById("f").innerHTML=(q.f?'<p class="fb"><b>'+(t===q.c?"✔ Correcto. ":"✘ Incorrecto. ")+'</b>'+q.f+'</p>':'')+'<button class="btn" onclick="next()">'+(last?"Ver resultado":"Siguiente")+'</button>';
+        document.getElementById("f").innerHTML=(q.f?'<div class="alert alert-secondary mt-3 mb-0"><b>'+(t===q.c?"✔ Correcto. ":"✘ Incorrecto. ")+'</b>'+q.f+'</div>':'')+'<button type="button" class="btn btn-primary mt-3" onclick="next()">'+(last?"Ver resultado":"Siguiente")+'</button>';
     }
     function next(){st.n++;st.n<st.qs.length?show():result()}
     function result(){
         const p=Math.round(st.ok/st.qs.length*100);
-        app.innerHTML='<div class="box"><h2>Resultado: '+st.ok+' / '+st.qs.length+' ('+p+'%)</h2><p>'+(p>=80?"¡Excelente dominio!":p>=60?"Buen avance, repasa los errores.":"Sigue practicando, ¡tú puedes!")+'</p><button class="btn" onclick="start()">Reintentar</button><a class="btn g" href="../index.html">Volver al Panel</a></div>';
+        app.innerHTML='<div class="card shadow-sm"><div class="card-body p-4 text-center"><h2 class="h4 mb-3">Resultado: '+st.ok+' / '+st.qs.length+' ('+p+'%)</h2><p class="text-body-secondary">'+(p>=80?"¡Excelente dominio!":p>=60?"Buen avance, repasa los errores.":"Sigue practicando, ¡tú puedes!")+'</p><button type="button" class="btn btn-primary me-2" onclick="start()">Reintentar</button><a class="btn btn-outline-secondary" href="../index.html">Volver al Panel</a></div></div>';
     }
     start();
     </script>
