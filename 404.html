@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Página no encontrada · SIMULADORES-2026</title>
+    <meta name="description" content="La página que buscas no existe o cambió de dirección. Vuelve al panel de simuladores de normativa educativa boliviana.">
+    <!-- Rutas absolutas: la página 404 se sirve en cualquier nivel de URL -->
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <main class="error-page">
+            <div class="error-card">
+                <div class="error-icon"><i class="fas fa-compass"></i></div>
+                <p class="error-code">404</p>
+                <h1 class="error-title">Página no encontrada</h1>
+                <p class="error-text">
+                    La dirección que escribiste no existe o el documento cambió de lugar.
+                    Vuelve al panel principal y elige un módulo.
+                </p>
+                <div class="error-actions">
+                    <a href="/index.html" class="btn-quiz"><i class="fas fa-house"></i> Ir al panel</a>
+                    <button type="button" class="btn-back" id="backBtn"><i class="fas fa-arrow-left"></i> Volver atrás</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('backBtn').addEventListener('click', function () {
+            if (history.length > 1) {
+                history.back();
+            } else {
+                location.href = '/index.html';
+            }
+        });
+    </script>
+</body>
+</html>

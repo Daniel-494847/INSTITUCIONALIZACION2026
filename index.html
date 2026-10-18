@@ -323,62 +323,32 @@
 
         </div>
 
-        <!-- ==================== Vista 2: Documentos de una carpeta ==================== -->
-        <div class="docs-view" id="docsView" hidden>
-            <button class="btn-back" id="backBtn" type="button">
-                <i class="fas fa-arrow-left"></i> Volver a carpetas
-            </button>
-            <h2 class="docs-title" id="docsTitle"></h2>
-            <div class="docs-grid" id="docsGrid"></div>
-        </div>
     </div>
 
     <script src="script.js"></script>
     <script>
-        // Panel principal: al pulsar una carpeta se muestran sus documentos
-        // como tarjetas independientes en una vista aparte.
+        // Panel principal: cada carpeta muestra dentro la lista de sus
+        // documentos. Al pulsar el encabezado, la lista se pliega o despliega.
         (function () {
-            const foldersView = document.getElementById('foldersView');
-            const docsView = document.getElementById('docsView');
-            const docsGrid = document.getElementById('docsGrid');
-            const docsTitle = document.getElementById('docsTitle');
-            const backBtn = document.getElementById('backBtn');
-
-            function abrirCarpeta(card) {
-                const plantilla = card.querySelector('.folder-docs');
-                const docs = Array.from(plantilla.children).map(n => n.cloneNode(true));
-                docsGrid.replaceChildren(...docs);
-
-                const nombre = card.querySelector('.folder-title').textContent;
-                const n = docs.length;
-                docsTitle.textContent = nombre + ' · ' + n + (n === 1 ? ' documento' : ' documentos');
-
-                foldersView.hidden = true;
-                docsView.hidden = false;
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-
-            function volver() {
-                docsView.hidden = true;
-                docsGrid.replaceChildren();
-                foldersView.hidden = false;
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-
-            document.querySelectorAll('.folder-card').forEach(card => {
+            document.querySelectorAll('.folder-card').forEach(function (card) {
                 const header = card.querySelector('.folder-header');
                 if (!header) return;
 
-                header.addEventListener('click', () => abrirCarpeta(card));
-                header.addEventListener('keydown', (e) => {
+                header.setAttribute('aria-expanded', 'true');
+
+                function toggle() {
+                    const collapsed = card.classList.toggle('collapsed');
+                    header.setAttribute('aria-expanded', String(!collapsed));
+                }
+
+                header.addEventListener('click', toggle);
+                header.addEventListener('keydown', function (e) {
                     if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
                         e.preventDefault();
-                        abrirCarpeta(card);
+                        toggle();
                     }
                 });
             });
-
-            backBtn.addEventListener('click', volver);
         })();
     </script>
 </body>
