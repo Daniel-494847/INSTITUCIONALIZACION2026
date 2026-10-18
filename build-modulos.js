@@ -29,7 +29,7 @@ const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(
 function paginaQuiz(doc) {
     const data = JSON.stringify(doc).replace(/<\//g, '<\\/');
     return `<!DOCTYPE html>
-<html lang="es" data-bs-theme="dark">
+<html lang="es" data-bs-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +43,7 @@ function paginaQuiz(doc) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
 </head>
-<body class="bg-body-tertiary">
+<body>
     <div class="container py-4">
         <a href="../index.html" class="btn btn-sm btn-outline-secondary mb-4" onclick="if(history.length>1){history.back();return false;}">
             <i class="fas fa-arrow-left"></i> Volver al Panel

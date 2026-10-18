@@ -1,422 +1,321 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="dark">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Principal - Sistema de Capacitación</title>
-    <meta name="description" content="Sistema de Capacitación con 20 documentos de normativa educativa boliviana y textos técnico-pedagógicos, y más de 1.300 preguntas en cuestionarios interactivos.">
-    <meta property="og:title" content="Panel Principal - Sistema de Capacitación">
-    <meta property="og:description" content="Normativa General, Normativa Específica y Técnico Pedagógico, cada documento con su cuestionario interactivo.">
-    <meta property="og:type" content="website">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>SIMULADORES-2026</title>
+    <meta name="description" content="Panel de simuladores con normativa educativa boliviana y textos técnico-pedagógicos: 20 documentos y más de 1.300 preguntas en cuestionarios interactivos.">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-body-tertiary">
-    <div class="container py-4">
-        <header class="text-center mb-5">
-            <h1 class="display-6 fw-bold">Panel Principal</h1>
-            <p class="lead text-body-secondary mb-2">Elige una carpeta para ver sus documentos</p>
-            <p class="text-body-secondary mx-auto mb-0" style="max-width: 760px;">
-                Sistema de capacitación con <strong>20 documentos</strong> de normativa educativa boliviana y textos técnico-pedagógicos,
-                organizados en Normativa General, Normativa Específica y Técnico Pedagógico.
-                Cada documento incluye un cuestionario interactivo: <strong>más de 1.300 preguntas</strong> en total.
-            </p>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="header-title">PANEL DE SIMULADORES</h1>
+            <p class="header-subtitle">Elige un módulo</p>
         </header>
 
         <!-- ==================== Vista 1: Carpetas ==================== -->
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="foldersView">
+        <div class="folders-grid" id="foldersView">
 
             <!-- Carpeta 1: Normativa General -->
-            <div class="col">
-                <div class="card h-100 shadow-sm folder-card border-start border-4 border-primary">
-                    <div class="card-body">
-                        <button type="button" class="folder-header d-flex align-items-center gap-3 w-100 text-start">
-                            <span class="folder-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-primary bg-opacity-10 text-primary" style="width:48px;height:48px;font-size:1.5rem;"><i class="fas fa-folder-open"></i></span>
-                            <span class="folder-info flex-grow-1">
-                                <span class="folder-title d-block fw-semibold fs-5">Normativa General</span>
-                                <span class="folder-count d-block text-body-secondary small">8 documentos</span>
-                            </span>
-                            <i class="fas fa-chevron-right folder-toggle text-body-secondary" aria-hidden="true"></i>
-                        </button>
+            <div class="folder-card folder-blue">
+                <div class="folder-header" role="button" tabindex="0">
+                    <div class="folder-icon"><i class="fas fa-folder-open"></i></div>
+                    <div class="folder-info">
+                        <h3 class="folder-title">Normativa General</h3>
+                        <p class="folder-count">8 documentos</p>
+                    </div>
+                    <i class="fas fa-chevron-right folder-toggle" aria-hidden="true"></i>
+                </div>
 
-                        <div class="folder-docs">
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-primary bg-opacity-10 text-primary" style="width:40px;height:40px;"><i class="fas fa-scroll"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Constitución Política del Estado</h4>
-                                                <p class="module-count text-body-secondary small mb-0">CPE 2009 · 50 preguntas</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-general/constitucion-politica-del-estado.html" class="btn btn-primary w-100"><i class="fas fa-gamepad"></i> Quiz</a>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="folder-docs">
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon blue"><i class="fas fa-scroll"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Constitución Política del Estado</h4>
+                                <p class="module-count">CPE 2009 · 50 preguntas</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-general/constitucion-politica-del-estado.html" class="btn btn-quiz"><i class="fas fa-gamepad"></i> Quiz</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-primary bg-opacity-10 text-primary" style="width:40px;height:40px;"><i class="fas fa-graduation-cap"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Ley 070 Avelino Siñani - Elizardo Pérez</h4>
-                                                <p class="module-count text-body-secondary small mb-0">Ley de la Educación, 20/12/2010 · 8 preguntas</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-general/ley-070-avelino-sinani-elizardo-perez.html" class="btn btn-primary w-100"><i class="fas fa-gamepad"></i> Quiz</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon blue"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Ley 070 Avelino Siñani - Elizardo Pérez</h4>
+                                <p class="module-count">Ley de la Educación, 20/12/2010 · 8 preguntas</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-general/ley-070-avelino-sinani-elizardo-perez.html" class="btn btn-quiz"><i class="fas fa-gamepad"></i> Quiz</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-primary bg-opacity-10 text-primary" style="width:40px;height:40px;"><i class="fas fa-handshake"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Ley 045 Contra el Racismo y toda forma de Discriminación</h4>
-                                                <p class="module-count text-body-secondary small mb-0">Ley de 8/10/2010 · 8 preguntas</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-general/ley-045-contra-el-racismo-y-toda-forma-de-discriminacion.html" class="btn btn-primary w-100"><i class="fas fa-gamepad"></i> Quiz</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon blue"><i class="fas fa-handshake"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Ley 045 Contra el Racismo y toda forma de Discriminación</h4>
+                                <p class="module-count">Ley de 8/10/2010 · 8 preguntas</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-general/ley-045-contra-el-racismo-y-toda-forma-de-discriminacion.html" class="btn btn-quiz"><i class="fas fa-gamepad"></i> Quiz</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-primary bg-opacity-10 text-primary" style="width:40px;height:40px;"><i class="fas fa-scale-balanced"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Ley 004 Lucha contra la Corrupción</h4>
-                                                <p class="module-count text-body-secondary small mb-0">Marcelo Quiroga Santa Cruz, 31/03/2010 · 9 preguntas</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-general/ley-004-lucha-contra-la-corrupcion-marcelo-quiroga-santa-cruz.html" class="btn btn-primary w-100"><i class="fas fa-gamepad"></i> Quiz</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon blue"><i class="fas fa-scale-balanced"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Ley 004 Lucha contra la Corrupción</h4>
+                                <p class="module-count">Marcelo Quiroga Santa Cruz, 31/03/2010 · 9 preguntas</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-general/ley-004-lucha-contra-la-corrupcion-marcelo-quiroga-santa-cruz.html" class="btn btn-quiz"><i class="fas fa-gamepad"></i> Quiz</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-primary bg-opacity-10 text-primary" style="width:40px;height:40px;"><i class="fas fa-wheelchair"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Ley 223 General para Personas con Discapacidad</h4>
-                                                <p class="module-count text-body-secondary small mb-0">Ley de 2/03/2012 · 8 preguntas</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-general/ley-223-general-para-personas-con-discapacidad.html" class="btn btn-primary w-100"><i class="fas fa-gamepad"></i> Quiz</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon blue"><i class="fas fa-wheelchair"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Ley 223 General para Personas con Discapacidad</h4>
+                                <p class="module-count">Ley de 2/03/2012 · 8 preguntas</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-general/ley-223-general-para-personas-con-discapacidad.html" class="btn btn-quiz"><i class="fas fa-gamepad"></i> Quiz</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-primary bg-opacity-10 text-primary" style="width:40px;height:40px;"><i class="fas fa-venus"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Ley 348 Vida Libre de Violencia para las Mujeres</h4>
-                                                <p class="module-count text-body-secondary small mb-0">Ley de 9/03/2013 · 10 preguntas</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-general/ley-348-vida-libre-de-violencia-para-las-mujeres.html" class="btn btn-primary w-100"><i class="fas fa-gamepad"></i> Quiz</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon blue"><i class="fas fa-venus"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Ley 348 Vida Libre de Violencia para las Mujeres</h4>
+                                <p class="module-count">Ley de 9/03/2013 · 10 preguntas</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-general/ley-348-vida-libre-de-violencia-para-las-mujeres.html" class="btn btn-quiz"><i class="fas fa-gamepad"></i> Quiz</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-primary bg-opacity-10 text-primary" style="width:40px;height:40px;"><i class="fas fa-children"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Ley 548 Código Niña, Niño y Adolescente</h4>
-                                                <p class="module-count text-body-secondary small mb-0">Ley de 17/07/2014 · 10 preguntas</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-general/ley-548-codigo-nina-nino-y-adolescente.html" class="btn btn-primary w-100"><i class="fas fa-gamepad"></i> Quiz</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon blue"><i class="fas fa-children"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Ley 548 Código Niña, Niño y Adolescente</h4>
+                                <p class="module-count">Ley de 17/07/2014 · 10 preguntas</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-general/ley-548-codigo-nina-nino-y-adolescente.html" class="btn btn-quiz"><i class="fas fa-gamepad"></i> Quiz</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-primary bg-opacity-10 text-primary" style="width:40px;height:40px;"><i class="fas fa-landmark"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Ley 1178 SAFCO Administración y Control Gubernamentales</h4>
-                                                <p class="module-count text-body-secondary small mb-0">Ley de 20/07/1990 · 9 preguntas</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-general/ley-1178-safco-administracion-y-control-gubernamentales.html" class="btn btn-primary w-100"><i class="fas fa-gamepad"></i> Quiz</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon blue"><i class="fas fa-landmark"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Ley 1178 SAFCO Administración y Control Gubernamentales</h4>
+                                <p class="module-count">Ley de 20/07/1990 · 9 preguntas</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-general/ley-1178-safco-administracion-y-control-gubernamentales.html" class="btn btn-quiz"><i class="fas fa-gamepad"></i> Quiz</a>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Carpeta 2: Normativa Específica -->
-            <div class="col">
-                <div class="card h-100 shadow-sm folder-card border-start border-4 border-danger">
-                    <div class="card-body">
-                        <button type="button" class="folder-header d-flex align-items-center gap-3 w-100 text-start">
-                            <span class="folder-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-danger bg-opacity-10 text-danger" style="width:48px;height:48px;font-size:1.5rem;"><i class="fas fa-folder-open"></i></span>
-                            <span class="folder-info flex-grow-1">
-                                <span class="folder-title d-block fw-semibold fs-5">Normativa Específica</span>
-                                <span class="folder-count d-block text-body-secondary small">8 documentos</span>
-                            </span>
-                            <i class="fas fa-chevron-right folder-toggle text-body-secondary" aria-hidden="true"></i>
-                        </button>
+            <div class="folder-card folder-red">
+                <div class="folder-header" role="button" tabindex="0">
+                    <div class="folder-icon"><i class="fas fa-folder-open"></i></div>
+                    <div class="folder-info">
+                        <h3 class="folder-title">Normativa Específica</h3>
+                        <p class="folder-count">8 documentos</p>
+                    </div>
+                    <i class="fas fa-chevron-right folder-toggle" aria-hidden="true"></i>
+                </div>
 
-                        <div class="folder-docs">
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-danger bg-opacity-10 text-danger" style="width:40px;height:40px;"><i class="fas fa-id-card"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Decreto Supremo N° 4688</h4>
-                                                <p class="module-count text-body-secondary small mb-0">18/07/1957 · Reglamento del Escalafón Nacional</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-especifica/51-decreto-supremo-4688.html" class="btn btn-primary w-100"><i class="fas fa-book-open"></i> Abrir</a>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="folder-docs">
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon red"><i class="fas fa-id-card"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Decreto Supremo N° 4688</h4>
+                                <p class="module-count">18/07/1957 · Reglamento del Escalafón Nacional</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-especifica/51-decreto-supremo-4688.html" class="btn btn-quiz"><i class="fas fa-book-open"></i> Abrir</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-danger bg-opacity-10 text-danger" style="width:40px;height:40px;"><i class="fas fa-triangle-exclamation"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Resolución Suprema N° 212414</h4>
-                                                <p class="module-count text-body-secondary small mb-0">21/04/1993 · Faltas y Sanciones del Magisterio</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-especifica/52-resolucion-suprema-212414.html" class="btn btn-primary w-100"><i class="fas fa-book-open"></i> Abrir</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon red"><i class="fas fa-triangle-exclamation"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Resolución Suprema N° 212414</h4>
+                                <p class="module-count">21/04/1993 · Faltas y Sanciones del Magisterio</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-especifica/52-resolucion-suprema-212414.html" class="btn btn-quiz"><i class="fas fa-book-open"></i> Abrir</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-danger bg-opacity-10 text-danger" style="width:40px;height:40px;"><i class="fas fa-shield-halved"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Resolución Ministerial N° 864/2019</h4>
-                                                <p class="module-count text-body-secondary small mb-0">09/08/2019 · Protocolo de Prevención de Violencia</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-especifica/53-resolucion-ministerial-864-2019.html" class="btn btn-primary w-100"><i class="fas fa-book-open"></i> Abrir</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon red"><i class="fas fa-shield-halved"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Resolución Ministerial N° 864/2019</h4>
+                                <p class="module-count">09/08/2019 · Protocolo de Prevención de Violencia</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-especifica/53-resolucion-ministerial-864-2019.html" class="btn btn-quiz"><i class="fas fa-book-open"></i> Abrir</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-danger bg-opacity-10 text-danger" style="width:40px;height:40px;"><i class="fas fa-universal-access"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Resolución Ministerial N° 069/2025</h4>
-                                                <p class="module-count text-body-secondary small mb-0">07/02/2025 · Educación Inclusiva</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-especifica/54-resolucion-ministerial-069-2025.html" class="btn btn-primary w-100"><i class="fas fa-book-open"></i> Abrir</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon red"><i class="fas fa-universal-access"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Resolución Ministerial N° 069/2025</h4>
+                                <p class="module-count">07/02/2025 · Educación Inclusiva</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-especifica/54-resolucion-ministerial-069-2025.html" class="btn btn-quiz"><i class="fas fa-book-open"></i> Abrir</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-danger bg-opacity-10 text-danger" style="width:40px;height:40px;"><i class="fas fa-school"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Resoluciones Ministeriales N° 0020, 0021 y 0022/2024</h4>
-                                                <p class="module-count text-body-secondary small mb-0">09/01/2024 · Apertura, Modificación y Cierre de UE</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-especifica/55-resoluciones-ministeriales-2024-2025.html" class="btn btn-primary w-100"><i class="fas fa-book-open"></i> Abrir</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon red"><i class="fas fa-school"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Resoluciones Ministeriales N° 0020, 0021 y 0022/2024</h4>
+                                <p class="module-count">09/01/2024 · Apertura, Modificación y Cierre de UE</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-especifica/55-resoluciones-ministeriales-2024-2025.html" class="btn btn-quiz"><i class="fas fa-book-open"></i> Abrir</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-danger bg-opacity-10 text-danger" style="width:40px;height:40px;"><i class="fas fa-clipboard-check"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Resolución Ministerial N° 0190/2024</h4>
-                                                <p class="module-count text-body-secondary small mb-0">12/03/2024 · Evaluación del Desarrollo Curricular</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-especifica/56-resolucion-ministerial-0190-2024.html" class="btn btn-primary w-100"><i class="fas fa-book-open"></i> Abrir</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon red"><i class="fas fa-clipboard-check"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Resolución Ministerial N° 0190/2024</h4>
+                                <p class="module-count">12/03/2024 · Evaluación del Desarrollo Curricular</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-especifica/56-resolucion-ministerial-0190-2024.html" class="btn btn-quiz"><i class="fas fa-book-open"></i> Abrir</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-danger bg-opacity-10 text-danger" style="width:40px;height:40px;"><i class="fas fa-file-certificate"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Resolución Ministerial N° 800/2015</h4>
-                                                <p class="module-count text-body-secondary small mb-0">23/10/2015 · Libretas de Calificaciones Electrónicas</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-especifica/57-resolucion-ministerial-800-2015.html" class="btn btn-primary w-100"><i class="fas fa-book-open"></i> Abrir</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon red"><i class="fas fa-file-certificate"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Resolución Ministerial N° 800/2015</h4>
+                                <p class="module-count">23/10/2015 · Libretas de Calificaciones Electrónicas</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-especifica/57-resolucion-ministerial-800-2015.html" class="btn btn-quiz"><i class="fas fa-book-open"></i> Abrir</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-danger bg-opacity-10 text-danger" style="width:40px;height:40px;"><i class="fas fa-gavel"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Resolución Ministerial N° 001/2026</h4>
-                                                <p class="module-count text-body-secondary small mb-0">05/01/2026 · Del Subsistema de Educación Regular</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="normativa-especifica/58-resolucion-ministerial-001-2026.html" class="btn btn-primary w-100"><i class="fas fa-book-open"></i> Abrir</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon red"><i class="fas fa-gavel"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Resolución Ministerial N° 001/2026</h4>
+                                <p class="module-count">05/01/2026 · Del Subsistema de Educación Regular</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="normativa-especifica/58-resolucion-ministerial-001-2026.html" class="btn btn-quiz"><i class="fas fa-book-open"></i> Abrir</a>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Carpeta 3: Técnico Pedagógico -->
-            <div class="col">
-                <div class="card h-100 shadow-sm folder-card border-start border-4 border-warning">
-                    <div class="card-body">
-                        <button type="button" class="folder-header d-flex align-items-center gap-3 w-100 text-start">
-                            <span class="folder-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-warning bg-opacity-10 text-warning" style="width:48px;height:48px;font-size:1.5rem;"><i class="fas fa-folder-open"></i></span>
-                            <span class="folder-info flex-grow-1">
-                                <span class="folder-title d-block fw-semibold fs-5">Técnico Pedagógico</span>
-                                <span class="folder-count d-block text-body-secondary small">4 documentos</span>
-                            </span>
-                            <i class="fas fa-chevron-right folder-toggle text-body-secondary" aria-hidden="true"></i>
-                        </button>
+            <div class="folder-card folder-orange">
+                <div class="folder-header" role="button" tabindex="0">
+                    <div class="folder-icon"><i class="fas fa-folder-open"></i></div>
+                    <div class="folder-info">
+                        <h3 class="folder-title">Técnico Pedagógico</h3>
+                        <p class="folder-count">4 documentos</p>
+                    </div>
+                    <i class="fas fa-chevron-right folder-toggle" aria-hidden="true"></i>
+                </div>
 
-                        <div class="folder-docs">
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-warning bg-opacity-10 text-warning" style="width:40px;height:40px;"><i class="fas fa-book"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">ODS 4 — Educación 2030, UNESCO</h4>
-                                                <p class="module-count text-body-secondary small mb-0">Objetivo de Desarrollo Sostenible 4</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="textos-pedagogicos/61-ods-4-educacion-2030-unesco.html" class="btn btn-primary w-100"><i class="fas fa-book-open"></i> Abrir</a>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="folder-docs">
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon orange"><i class="fas fa-book"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">ODS 4 — Educación 2030, UNESCO</h4>
+                                <p class="module-count">Objetivo de Desarrollo Sostenible 4</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="textos-pedagogicos/61-ods-4-educacion-2030-unesco.html" class="btn btn-quiz"><i class="fas fa-book-open"></i> Abrir</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-warning bg-opacity-10 text-warning" style="width:40px;height:40px;"><i class="fas fa-users"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">LIDEI 2022 — Liderazgo Directivo en Iberoamérica</h4>
-                                                <p class="module-count text-body-secondary small mb-0">OEI (2023)</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="textos-pedagogicos/62-lidei-2022-liderazgo-directivo-oei.html" class="btn btn-primary w-100"><i class="fas fa-book-open"></i> Abrir</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon orange"><i class="fas fa-users"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">LIDEI 2022 — Liderazgo Directivo en Iberoamérica</h4>
+                                <p class="module-count">OEI (2023)</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="textos-pedagogicos/62-lidei-2022-liderazgo-directivo-oei.html" class="btn btn-quiz"><i class="fas fa-book-open"></i> Abrir</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-warning bg-opacity-10 text-warning" style="width:40px;height:40px;"><i class="fas fa-chalkboard-user"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">Marco para la Gestión y el Liderazgo Educativo Local</h4>
-                                                <p class="module-count text-body-secondary small mb-0">Uribe et al., 2025</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="textos-pedagogicos/63-marco-gestion-liderazgo-educativo-local.html" class="btn btn-primary w-100"><i class="fas fa-book-open"></i> Abrir</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon orange"><i class="fas fa-chalkboard-user"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">Marco para la Gestión y el Liderazgo Educativo Local</h4>
+                                <p class="module-count">Uribe et al., 2025</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="textos-pedagogicos/63-marco-gestion-liderazgo-educativo-local.html" class="btn btn-quiz"><i class="fas fa-book-open"></i> Abrir</a>
+                        </div>
+                    </div>
 
-                            <div class="col">
-                                <div class="card h-100 shadow-sm doc-card">
-                                    <div class="card-body d-flex flex-column">
-                                        <div class="d-flex align-items-center gap-3 mb-3">
-                                            <div class="module-icon d-inline-flex align-items-center justify-content-center rounded-3 bg-warning bg-opacity-10 text-warning" style="width:40px;height:40px;"><i class="fas fa-chart-line"></i></div>
-                                            <div class="module-text flex-grow-1">
-                                                <h4 class="module-title h6 fw-semibold mb-1">ERCE 2019 — Estudio Regional Comparativo y Explicativo</h4>
-                                                <p class="module-count text-body-secondary small mb-0">UNESCO — LLECE</p>
-                                            </div>
-                                        </div>
-                                        <div class="module-actions mt-auto">
-                                            <a href="textos-pedagogicos/64-erce-2019.html" class="btn btn-primary w-100"><i class="fas fa-book-open"></i> Abrir</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="doc-card">
+                        <div class="module-info">
+                            <div class="module-icon orange"><i class="fas fa-chart-line"></i></div>
+                            <div class="module-text">
+                                <h4 class="module-title">ERCE 2019 — Estudio Regional Comparativo y Explicativo</h4>
+                                <p class="module-count">UNESCO — LLECE</p>
                             </div>
+                        </div>
+                        <div class="module-actions">
+                            <a href="textos-pedagogicos/64-erce-2019.html" class="btn btn-quiz"><i class="fas fa-book-open"></i> Abrir</a>
                         </div>
                     </div>
                 </div>
@@ -426,11 +325,11 @@
 
         <!-- ==================== Vista 2: Documentos de una carpeta ==================== -->
         <div class="docs-view" id="docsView" hidden>
-            <button class="btn btn-sm btn-outline-secondary mb-3" id="backBtn" type="button">
+            <button class="btn-back" id="backBtn" type="button">
                 <i class="fas fa-arrow-left"></i> Volver a carpetas
             </button>
-            <h2 class="h3 fw-bold mb-4" id="docsTitle"></h2>
-            <div class="row row-cols-1 row-cols-md-2 g-3" id="docsGrid"></div>
+            <h2 class="docs-title" id="docsTitle"></h2>
+            <div class="docs-grid" id="docsGrid"></div>
         </div>
     </div>
 

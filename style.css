@@ -1,56 +1,290 @@
 /* ============================================================
-   Tema del proyecto — Bootstrap 5 (modo oscuro)
-   Este archivo solo define ajustes propios sobre Bootstrap.
-   El modo oscuro se activa con data-bs-theme="dark" en <html>.
+   Tema del proyecto — claro y elegante
+   · Estilos propios del Panel principal (index.html)
+   · Ajustes finos sobre Bootstrap 5 para las páginas de quiz
    ============================================================ */
 
+/* ---------- Tokens y base ---------- */
 :root {
     --bs-body-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --bs-body-bg: #eef1f6;
+    --bs-body-color: #1f2937;
+
+    --surface: #ffffff;
+    --border-soft: rgba(15, 23, 42, .08);
+    --text-strong: #0f172a;
+    --text-muted: #64748b;
+    --shadow-soft: 0 1px 2px rgba(15, 23, 42, .04), 0 10px 30px -18px rgba(15, 23, 42, .35);
+    --shadow-hover: 0 14px 34px -16px rgba(15, 23, 42, .30);
 }
 
 body {
     font-family: var(--bs-body-font-family);
+    color: var(--bs-body-color);
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 55%, #e7ecf4 100%) fixed;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
-/* Botón-encabezado de carpeta (sin apariencia de botón nativo) */
+/* Tarjetas de Bootstrap: fondo blanco para contrastar sobre el fondo perla */
+.card {
+    --bs-card-bg: var(--surface);
+    border-color: var(--border-soft);
+}
+
+/* ---------- Contenedor responsivo (idéntico a Bootstrap) ----------
+   Se define aquí porque el Panel no carga Bootstrap; en las páginas de
+   quiz replica exactamente el contenedor de Bootstrap y no lo altera. */
+.container {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 576px)  { .container { max-width: 540px; } }
+@media (min-width: 768px)  { .container { max-width: 720px; } }
+@media (min-width: 992px)  { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+@media (min-width: 1400px) { .container { max-width: 1320px; } }
+
+/* ============================================================
+   PANEL PRINCIPAL (index.html)
+   ============================================================ */
+
+/* ---------- Encabezado ---------- */
+.header {
+    text-align: center;
+    padding: 3.25rem 0 2.25rem;
+}
+
+.header-title {
+    font-size: clamp(1.9rem, 4vw, 2.7rem);
+    font-weight: 800;
+    letter-spacing: -.02em;
+    line-height: 1.15;
+    margin: 0 0 .4rem;
+    color: var(--text-strong);
+}
+
+.header-subtitle {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+}
+
+/* ---------- Rejilla de carpetas ---------- */
+.folders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.5rem;
+    padding-bottom: 3rem;
+}
+
+/* ---------- Tarjeta de carpeta ---------- */
+.folder-card {
+    --accent: #2563eb;
+    --accent-soft: #eff6ff;
+
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: 1.1rem;
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.folder-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(15, 23, 42, .14);
+}
+
+.folder-blue   { --accent: #2563eb; --accent-soft: #eff6ff; }
+.folder-red    { --accent: #dc2626; --accent-soft: #fef2f2; }
+.folder-orange { --accent: #ea580c; --accent-soft: #fff7ed; }
+
 .folder-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.35rem 1.5rem;
     background: transparent;
     border: 0;
     color: inherit;
-    padding: 0;
     cursor: pointer;
 }
 
 .folder-header:focus-visible {
-    outline: 2px solid var(--bs-primary);
-    outline-offset: 4px;
-    border-radius: 0.5rem;
+    outline: 2px solid var(--accent);
+    outline-offset: -3px;
+    border-radius: 1.1rem;
+}
+
+.folder-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    font-size: 1.4rem;
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.folder-info { flex: 1; min-width: 0; }
+
+.folder-title {
+    margin: 0 0 .2rem;
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--text-strong);
+}
+
+.folder-count {
+    margin: 0;
+    font-size: .9rem;
+    color: var(--text-muted);
 }
 
 .folder-toggle {
-    transition: transform 0.2s ease;
+    color: var(--accent);
+    font-size: .95rem;
+    transition: transform .2s ease;
 }
 
-.folder-header:hover .folder-toggle {
-    transform: translateX(4px);
-}
+.folder-header:hover .folder-toggle { transform: translateX(4px); }
 
 /* Plantilla oculta con los documentos de cada carpeta */
-.folder-docs {
-    display: none;
-}
+.folder-docs { display: none; }
 
-/* Ocultar vistas con el atributo [hidden] aunque usen display:flex/grid de Bootstrap */
-#foldersView[hidden],
-.docs-view[hidden] {
-    display: none !important;
-}
-
-/* Tarjetas de documento */
+/* ---------- Tarjeta de documento (dentro de una carpeta abierta) ---------- */
 .doc-card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.05rem 1.15rem;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: .9rem;
+    box-shadow: var(--shadow-soft);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
 .doc-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(15, 23, 42, .14);
+}
+
+.module-info {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    min-width: 0;
+}
+
+.module-icon {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    font-size: 1.1rem;
+}
+
+.module-icon.blue   { background: #eff6ff; color: #2563eb; }
+.module-icon.red    { background: #fef2f2; color: #dc2626; }
+.module-icon.orange { background: #fff7ed; color: #ea580c; }
+
+.module-text { min-width: 0; }
+
+.module-title {
+    margin: 0 0 .2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-strong);
+}
+
+.module-count {
+    margin: 0;
+    font-size: .85rem;
+    color: var(--text-muted);
+}
+
+.module-actions { flex-shrink: 0; }
+
+/* ---------- Botones del panel ---------- */
+.btn-quiz {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+    padding: .5rem .95rem;
+    font-size: .88rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: #2563eb;
+    border: 0;
+    border-radius: .7rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.btn-quiz:hover {
+    background: #1d4ed8;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px -8px rgba(37, 99, 235, .8);
+}
+
+/* ---------- Vista de documentos de una carpeta ---------- */
+.docs-view { padding-bottom: 3rem; }
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .55rem 1rem;
+    font-size: .9rem;
+    font-weight: 600;
+    color: #334155;
+    background: var(--surface);
+    border: 1px solid rgba(15, 23, 42, .12);
+    border-radius: .7rem;
+    cursor: pointer;
+    transition: background .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.btn-back:hover {
+    background: #f1f5f9;
+    border-color: rgba(15, 23, 42, .22);
+    transform: translateY(-1px);
+}
+
+.docs-title {
+    margin: 1.4rem 0 1.1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-strong);
+}
+
+.docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
+}
+
+/* ---------- Ocultar vistas con [hidden] aunque usen display:grid ---------- */
+#foldersView[hidden],
+#docsView[hidden] {
+    display: none !important;
 }
