@@ -1,0 +1,56 @@
+/* ============================================================
+   Tema del proyecto — Bootstrap 5 (modo oscuro)
+   Este archivo solo define ajustes propios sobre Bootstrap.
+   El modo oscuro se activa con data-bs-theme="dark" en <html>.
+   ============================================================ */
+
+:root {
+    --bs-body-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    font-family: var(--bs-body-font-family);
+}
+
+/* Botón-encabezado de carpeta (sin apariencia de botón nativo) */
+.folder-header {
+    background: transparent;
+    border: 0;
+    color: inherit;
+    padding: 0;
+    cursor: pointer;
+}
+
+.folder-header:focus-visible {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 4px;
+    border-radius: 0.5rem;
+}
+
+.folder-toggle {
+    transition: transform 0.2s ease;
+}
+
+.folder-header:hover .folder-toggle {
+    transform: translateX(4px);
+}
+
+/* Plantilla oculta con los documentos de cada carpeta */
+.folder-docs {
+    display: none;
+}
+
+/* Ocultar vistas con el atributo [hidden] aunque usen display:flex/grid de Bootstrap */
+#foldersView[hidden],
+.docs-view[hidden] {
+    display: none !important;
+}
+
+/* Tarjetas de documento */
+.doc-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.doc-card:hover {
+    transform: translateY(-3px);
+}

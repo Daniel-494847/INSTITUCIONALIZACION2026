@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolución Suprema N° 212414 — Faltas y Sanciones</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="../index.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Volver al Panel
+            </a>
+            <h1 class="header-title">Resolución Suprema N° 212414 — Faltas y Sanciones</h1>
+            <p class="header-subtitle">21 de abril de 1993 · 10 preguntas</p>
+        </header>
+
+        <main id="app"></main>
+    </div>
+
+    <script>
+    // Cada pregunta: "pregunta|correcta|mala1|mala2|mala3|retroalimentación"
+    const DOC={"i":"⚖️","f":"52-resolucion-suprema-212414","n":"Resolución Suprema N° 212414 — Faltas y Sanciones","d":"21 de abril de 1993","q":["De acuerdo al Art. 8 del Reglamento de Faltas y Sanciones, ¿cómo se clasifican las faltas disciplinarias?|Leves, graves y muy graves|Leves, graves y gravísimas|Administrativas, pedagógicas y penales|Menores, intermedias y mayores|El Artículo 8 de la R.S. 212414 establece explícitamente que las faltas se clasifican en: leves, graves y muy graves.","La suspensión de labores por cumpleaños y agasajos a directores o docentes está tipificada como falta:|Leve|Grave|Muy Grave|No constituye falta|El Art. 9 inc. a) de la R.S. 212414 tipifica la suspensión de labores por cumpleaños y agasajos a directores o docentes como falta leve.","¿Cuál de las siguientes sanciones corresponde a la comisión de Faltas Leves según el Art. 13?|Amonestación en privado o descuento de 1 a 5 días de haber|Suspensión de 15 a 60 días|Retiro definitivo del Magisterio|Postergación de ascenso por un año|El Art. 13 inc. a) de la R.S. 212414 establece como sanciones para faltas leves: Amonestación en privado, amonestación escrita, descuento de 1 a 5 días de haber, o traslado del lugar de trabajo.","El acoso sexual, estupro y la extorsión con violencia física o psíquica en el ejercicio docente está tipificado como faltas:|Muy Graves|Leves|Graves|Infracciones ordinarias|El Art. 11 inc. m) de la R.S. 212414 tipifica el acoso sexual, estupro, violación, intimidación física o psíquica como faltas MUY GRAVES.","¿Qué sanción establece el Art. 13 inc. c) para la comisión de Faltas Muy Graves?|Retiro definitivo del ejercicio del Magisterio o destitución del cargo|Descuento de 10 días de haber|Suspensión de 30 días sin goce de haber|Descenso a un cargo inferior|El Art. 13 inc. c) de la R.S. 212414 determina para faltas muy graves la sanción de Retiro definitivo del ejercicio del Magisterio o destitución del cargo.","Según el Art. 15, ¿cómo está estructurado un Tribunal Disciplinario?|Un Presidente, un Fiscal Promotor y un Secretario-Actuario|Un Presidente, un Vocal y un Secretario|Un Director Distrital, un Asesor Legal y un Representante Sindical|Un Juez de Turno y dos Vocales|El Art. 15 de la R.S. 212414 establece que los Tribunales Disciplinarios se componen de un PRESIDENTE, un FISCAL PROMOTOR y un SECRETARIO-ACTUARIO.","¿Quién ejerce la Presidencia del Tribunal Disciplinario Nacional según el Art. 16?|El Director General de Educación|El Ministro de Educación|El Fiscal Promotor|El Ejecutivo de la Confederación de Maestros|El Art. 16 de la R.S. 212414 señala expresamente que el Tribunal Disciplinario Nacional estará presidido por el Director General de Educación.","El término probatorio establecido para el proceso disciplinario en el Art. 24 inc. c) es de:|20 días (prorrogables por distancia)|10 días|15 días|30 días improrrogables|El Art. 24 inc. c) de la R.S. 212414 fija el período probatorio en 20 días, prorrogables por razón de la distancia a petición de parte o determinación de oficio.","¿Cuál es el plazo establecido para interponer el recurso de apelación o alzada según el Art. 25?|Dentro de tres (3) días|Dentro de las 24 horas|En el plazo de 5 días|En 10 días hábiles|El Art. 25 de la R.S. 212414 determina que el recurso de apelación o alzada ante el Tribunal Nacional se debe presentar dentro de tres (3) días.","La reincidencia voluntaria en la comisión de faltas leves se convierte automáticamente en una falta:|Grave|Disciplinaria menor|Muy Grave|Administrativa ordinaria|El Art. 10 inc. a) de la R.S. 212414 establece que la reincidencia voluntaria en las faltas leves es tipificada como falta GRAVE."]};
+    const app=document.getElementById("app");
+    let st={};
+    const shuf=a=>a.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
+    function start(){
+        const qs=shuf(DOC.q).map(s=>{const p=s.split("|");return{t:p[0],c:p[1],o:shuf(p.slice(1,5)),f:p[5]||""}});
+        st={qs,n:0,ok:0};show();
+    }
+    function show(){
+        const q=st.qs[st.n];
+        app.innerHTML='<div class="bar"><div style="width:'+(st.n/st.qs.length*100)+'%"></div></div>'+
+        '<div class="box"><small>Pregunta '+(st.n+1)+' de '+st.qs.length+'</small><h3>'+q.t+'</h3><div id="o"></div><div id="f"></div></div>';
+        const o=document.getElementById("o");
+        q.o.forEach(t=>{const b=document.createElement("button");b.className="opt";b.textContent=t;b.onclick=()=>answer(b,t,q);o.appendChild(b)});
+    }
+    function answer(b,t,q){
+        [...document.querySelectorAll(".opt")].forEach(x=>{x.disabled=true;if(x.textContent===q.c)x.classList.add("ok")});
+        if(t===q.c)st.ok++;else b.classList.add("ko");
+        const last=st.n===st.qs.length-1;
+        document.getElementById("f").innerHTML=(q.f?'<p class="fb"><b>'+(t===q.c?"✔ Correcto. ":"✘ Incorrecto. ")+'</b>'+q.f+'</p>':'')+'<button class="btn" onclick="next()">'+(last?"Ver resultado":"Siguiente")+'</button>';
+    }
+    function next(){st.n++;st.n<st.qs.length?show():result()}
+    function result(){
+        const p=Math.round(st.ok/st.qs.length*100);
+        app.innerHTML='<div class="box"><h2>Resultado: '+st.ok+' / '+st.qs.length+' ('+p+'%)</h2><p>'+(p>=80?"¡Excelente dominio!":p>=60?"Buen avance, repasa los errores.":"Sigue practicando, ¡tú puedes!")+'</p><button class="btn" onclick="start()">Reintentar</button><a class="btn g" href="../index.html">Volver al Panel</a></div>';
+    }
+    start();
+    </script>
+</body>
+</html>

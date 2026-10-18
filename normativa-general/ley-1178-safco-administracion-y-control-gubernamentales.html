@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ley 1178 SAFCO Administración y Control Gubernamentales</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="../index.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Volver al Panel
+            </a>
+            <h1 class="header-title">Ley 1178 SAFCO Administración y Control Gubernamentales</h1>
+            <p class="header-subtitle">Ley de 20/07/1990 · 9 preguntas</p>
+        </header>
+
+        <main id="app"></main>
+    </div>
+
+    <script>
+    // Cada pregunta: "pregunta|correcta|mala1|mala2|mala3|retroalimentación"
+    const DOC={"i":"🏛️","n":"Ley 1178 SAFCO Administración y Control Gubernamentales","d":"Ley de 20/07/1990","q":["¿Cuál es el órgano rector del Control Gubernamental?|Contraloría General|Ministerio de Hacienda|Procuraduría|Defensoría del Pueblo","¿Qué sanciones corresponden a la responsabilidad administrativa?|Multa hasta 20%, suspensión hasta 30 días o destitución|Solo amonestación|Prisión de 1 a 4 años|Multa del 50%","¿Cuándo hay responsabilidad civil?|Cuando se causa daño al Estado valuable en dinero|Cuando se incumple un reglamento interno|Cuando hay delito tipificado|Cuando no se rinde cuentas","¿En cuántos días se envía a la Contraloría copia de los contratos perfeccionados?|Cinco días|30 días|10 días|Tres meses","¿En cuánto tiempo deben entregarse los estados financieros tras concluir el ejercicio fiscal?|Tres meses|Un mes|Seis meses|Un año","¿Qué responsabilidad corresponde cuando la acción u omisión está tipificada en el Código Penal?|Penal|Administrativa|Ejecutiva|Civil","¿Qué se presume de las operaciones de todo servidor público?|Su licitud, mientras no se demuestre lo contrario|Su culpabilidad|Su ilegalidad|Nada","¿Cuántos sistemas de administración y control regula la ley?|Ocho|Cinco|Diez|Seis","¿Qué jurisdicción crea el Capítulo VII?|Jurisdicción coactiva fiscal|Jurisdicción tributaria|Jurisdicción militar|Jurisdicción agroambiental"]};
+    const app=document.getElementById("app");
+    let st={};
+    const shuf=a=>a.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
+    function start(){
+        const qs=shuf(DOC.q).map(s=>{const p=s.split("|");return{t:p[0],c:p[1],o:shuf(p.slice(1,5)),f:p[5]||""}});
+        st={qs,n:0,ok:0};show();
+    }
+    function show(){
+        const q=st.qs[st.n];
+        app.innerHTML='<div class="bar"><div style="width:'+(st.n/st.qs.length*100)+'%"></div></div>'+
+        '<div class="box"><small>Pregunta '+(st.n+1)+' de '+st.qs.length+'</small><h3>'+q.t+'</h3><div id="o"></div><div id="f"></div></div>';
+        const o=document.getElementById("o");
+        q.o.forEach(t=>{const b=document.createElement("button");b.className="opt";b.textContent=t;b.onclick=()=>answer(b,t,q);o.appendChild(b)});
+    }
+    function answer(b,t,q){
+        [...document.querySelectorAll(".opt")].forEach(x=>{x.disabled=true;if(x.textContent===q.c)x.classList.add("ok")});
+        if(t===q.c)st.ok++;else b.classList.add("ko");
+        const last=st.n===st.qs.length-1;
+        document.getElementById("f").innerHTML=(q.f?'<p class="fb"><b>'+(t===q.c?"✔ Correcto. ":"✘ Incorrecto. ")+'</b>'+q.f+'</p>':'')+'<button class="btn" onclick="next()">'+(last?"Ver resultado":"Siguiente")+'</button>';
+    }
+    function next(){st.n++;st.n<st.qs.length?show():result()}
+    function result(){
+        const p=Math.round(st.ok/st.qs.length*100);
+        app.innerHTML='<div class="box"><h2>Resultado: '+st.ok+' / '+st.qs.length+' ('+p+'%)</h2><p>'+(p>=80?"¡Excelente dominio!":p>=60?"Buen avance, repasa los errores.":"Sigue practicando, ¡tú puedes!")+'</p><button class="btn" onclick="start()">Reintentar</button><a class="btn g" href="../index.html">Volver al Panel</a></div>';
+    }
+    start();
+    </script>
+</body>
+</html>

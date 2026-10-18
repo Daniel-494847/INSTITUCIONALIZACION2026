@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ley 548 Código Niña, Niño y Adolescente</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="../index.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Volver al Panel
+            </a>
+            <h1 class="header-title">Ley 548 Código Niña, Niño y Adolescente</h1>
+            <p class="header-subtitle">Ley de 17/07/2014 · 37 preguntas</p>
+        </header>
+
+        <main id="app"></main>
+    </div>
+
+    <script>
+    // Cada pregunta: "pregunta|correcta|mala1|mala2|mala3|retroalimentación"
+    const DOC={"i":"🧒","n":"Ley 548 Código Niña, Niño y Adolescente","d":"Ley de 17/07/2014","q":[
+        "¿Cuál es el objeto principal de la Ley N° 548 (Código Niña, Niño y Adolescente)?|Reconocer, desarrollar y regular el ejercicio de los derechos de la niña, niño y adolescente, implementando el Sistema Plurinacional Integral|Regular exclusivamente las relaciones laborales de los adolescentes trabajadores|Establecer el régimen tributario aplicable a las empresas que contraten menores|Normar el procedimiento penal ordinario para personas adultas|Reconocer, desarrollar y regular el ejercicio de los derechos de la niña, niño y adolescente, implementando el Sistema Plurinacional Integral.",
+        "¿Cuál es la finalidad fundamental del Código Niña, Niño y Adolescente?|Garantizar el ejercicio pleno y efectivo de sus derechos para su desarrollo integral y exigir el cumplimiento de sus deberes|Crear un organismo internacional para la adopción de menores bolivianos|Sustituir la autoridad parental por la tutela estatal permanente|Regular únicamente la responsabilidad penal de los adolescentes|Garantizar el ejercicio pleno y efectivo de sus derechos para su desarrollo integral y exigir el cumplimiento de sus deberes.",
+        "¿A qué nivel del Estado se le asigna la competencia privativa de codificación en esta materia según la CPE?|Al nivel central del Estado|A los gobiernos autónomos municipales|A las entidades territoriales autónomas departamentales|A los pueblos indígena originario campesinos|Al nivel central del Estado.",
+        "¿Cuál es el ámbito de aplicación de las disposiciones del Código Niña, Niño y Adolescente?|Son de orden público y de aplicación preferente para todas las niñas, niños y adolescentes en el territorio nacional|Son de aplicación supletoria y solo rigen en el área rural|Se aplican únicamente dentro del sistema educativo fiscal|Rigen solo para menores de doce años de edad|Son de orden público y de aplicación preferente para todas las niñas, niños y adolescentes en el territorio nacional.",
+        "Según el artículo 5 de la Ley N° 548, ¿cómo se define la etapa de la niñez?|Desde la concepción hasta los doce (12) años cumplidos|Desde el nacimiento hasta los diez (10) años cumplidos|Desde la concepción hasta los catorce (14) años cumplidos|Desde los seis (6) hasta los catorce (14) años|Desde la concepción hasta los doce (12) años cumplidos.",
+        "¿Cómo se define la adolescencia de acuerdo con el artículo 5 de la Ley N° 548?|Desde los doce (12) años hasta los dieciocho (18) años cumplidos|Desde los catorce (14) hasta los veintiún (21) años|Desde los diez (10) hasta los dieciséis (16) años|Desde los trece (13) hasta los veinte (20) años|Desde los doce (12) años hasta los dieciocho (18) años cumplidos.",
+        "¿Qué rango de edad comprende la denominada primera infancia?|Desde el nacimiento hasta los cinco (5) años|Desde la concepción hasta los tres (3) años|Desde los seis (6) hasta los doce (12) años|Desde el nacimiento hasta los ocho (8) años|Desde el nacimiento hasta los cinco (5) años.",
+        "¿A qué edades se le denomina infancia escolar?|Desde los seis (6) hasta los doce (12) años|Desde los cinco (5) hasta los diez (10) años|Desde los siete (7) hasta los catorce (14) años|Desde los ocho (8) hasta los dieciséis (16) años|Desde los seis (6) hasta los doce (12) años.",
+        "¿Qué se presume a los fines de protección ante la falta de documento de identidad?|Se presumen menores de dieciocho (18) años en tanto no se pruebe lo contrario|Se presume su mayoría de edad|Se presume su nacionalidad extranjera|Se suspende de inmediato su protección estatal|Se presumen menores de dieciocho (18) años en tanto no se pruebe lo contrario.",
+        "¿Cómo deben interpretarse las normas de este Código ante cualquier duda?|Velando por el interés superior de la niña, niño y adolescente, conforme a la CPE y Tratados Internacionales más favorables|Aplicando siempre la interpretación más restrictiva de derechos|Según el criterio económico de la familia involucrada|De acuerdo con las normas del derecho civil patrimonial|Velando por el interés superior de la niña, niño y adolescente, conforme a la CPE y Tratados Internacionales más favorables.",
+        "¿Qué característica económica tienen los procesos judiciales o administrativos para menores?|Son de carácter estrictamente gratuito para ellos|Están sujetos al pago de aranceles judiciales|Tienen costos reducidos solo si hay patrocinio estatal|Requieren una fianza previa de la familia|Son de carácter estrictamente gratuito para ellos.",
+        "¿En qué consiste el principio del Interés Superior?|Toda situación que favorezca el desarrollo integral de la niña, niño y adolescente en el goce de sus derechos y garantías|Toda decisión que priorice el interés económico de la familia|La facultad del Estado de sustituir a la familia de origen|El derecho de los padres a decidir sin injerencia estatal|Toda situación que favorezca el desarrollo integral de la niña, niño y adolescente en el goce de sus derechos y garantías.",
+        "¿Qué implica el principio de Prioridad Absoluta?|Objeto de preferente atención y protección en políticas públicas, asignación de recursos y acceso a servicios|Atención únicamente en casos de emergencia médica|Prioridad exclusiva dentro del sistema educativo|Protección solo cuando exista denuncia penal|Objeto de preferente atención y protección en políticas públicas, asignación de recursos y acceso a servicios.",
+        "¿Qué establece el principio de Igualdad y no Discriminación?|Que son libres e iguales con dignidad y derechos, sin ser discriminados por ninguna causa|Que deben ser tratados según su condición económica familiar|Que la ley solo protege a menores con documentos de identidad|Que los adolescentes pueden ser discriminados por sus antecedentes|Que son libres e iguales con dignidad y derechos, sin ser discriminados por ninguna causa.",
+        "¿En qué consiste el principio de Equidad de Género?|Las niñas y adolescentes gozan de los mismos derechos y acceso a oportunidades que los niños y adolescentes|Otorgar cupos exclusivos a los varones en el sistema educativo|Priorizar la adopción de niñas sobre la de niños|Establecer edades distintas de responsabilidad penal según el sexo|Las niñas y adolescentes gozan de los mismos derechos y acceso a oportunidades que los niños y adolescentes.",
+        "¿Qué reconoce el principio de Diversidad Cultural?|El reconocimiento y respeto a su identidad y pertenencia a una cultura|La primacía de la cultura occidental en la formación escolar|La obligación de adoptar una sola cultura nacional|La prohibición de usar lenguas originarias en trámites|El reconocimiento y respeto a su identidad y pertenencia a una cultura.",
+        "¿Quiénes son corresponsables de asegurar el respeto pleno de los derechos según el principio de Corresponsabilidad?|El Estado en todos sus niveles, las familias y la sociedad|Únicamente los padres y madres|Solo el Estado central|Exclusivamente organizaciones no gubernamentales|El Estado en todos sus niveles, las familias y la sociedad.",
+        "¿Qué rol cumple la familia según el principio respectivo?|Un rol fundamental, irrenunciable y primario como medio natural para garantizar su protección integral, educación y formación|Un rol subsidiario que el Estado puede reemplazar libremente|Un rol exclusivamente económico|Un rol potestativo que depende de la voluntad de los hijos|Un rol fundamental, irrenunciable y primario como medio natural para garantizar su protección integral, educación y formación.",
+        "¿Qué entidad pública funge como ente rector del Sistema Plurinacional Integral?|El Ministerio de Justicia|El Ministerio de Educación|El Ministerio de Salud|El Ministerio de Gobierno|El Ministerio de Justicia.",
+        "¿Qué comprende el derecho a la vida para niñas, niños y adolescentes?|Vivir en condiciones que garanticen una existencia digna, con políticas públicas estatales para su desarrollo integral|La simple prohibición legal de homicidio|El derecho a la herencia familiar|La atención médica solo en casos graves|Vivir en condiciones que garanticen una existencia digna, con políticas públicas estatales para su desarrollo integral.",
+        "¿Quiénes son considerados los garantes inmediatos del derecho a la salud?|La madre, el padre, la guardadora o guardador, y la tutora o tutor|Únicamente los médicos del sistema público|Las defensorías de la niñez y adolescencia|Las autoridades del Ministerio de Salud|La madre, el padre, la guardadora o guardador, y la tutora o tutor.",
+        "¿Qué obligación tienen los centros de salud públicos y privados ante una emergencia médica de un menor?|Prestar atención médica inmediata, prohibiendo negar la atención por falta de padres, documentos o recursos económicos|Exigir el pago previo del servicio antes de atender|Requerir autorización judicial para actuar|Derivar el caso a la Defensoría antes de atender|Prestar atención médica inmediata, prohibiendo negar la atención por falta de padres, documentos o recursos económicos.",
+        "¿Cuáles son los derechos específicos de niñas, niños y adolescentes en situación de discapacidad?|Detección temprana, diagnóstico especializado a edad temprana, atención, rehabilitación y educación inclusiva|Internamiento permanente en centros especializados|Exención total del sistema educativo|Atención exclusivamente privada a cargo de la familia|Detección temprana, diagnóstico especializado a edad temprana, atención, rehabilitación y educación inclusiva.",
+        "¿En qué condiciones puede una niña, niño o adolescente ser separado de su familia de origen?|Excepcionalmente, definidas por el Código y determinadas por la Jueza o Juez Público en materia de Niñez y Adolescencia previo proceso|Cuando la familia carece de recursos económicos|Por decisión administrativa de la Defensoría|Cuando los padres migran al exterior|Excepcionalmente, definidas por el Código y determinadas por la Jueza o Juez Público en materia de Niñez y Adolescencia previo proceso.",
+        "¿Constituye la falta de recursos económicos motivo suficiente para la suspensión de la autoridad parental?|No, la falta de recursos materiales no constituye por sí sola motivo para suspender o extinguir la autoridad|Sí, cuando la familia está en pobreza extrema|Sí, si la vivienda no cumple condiciones mínimas|Sí, cuando no se paga la asistencia familiar|No, la falta de recursos materiales no constituye por sí sola motivo para suspender o extinguir la autoridad.",
+        "¿Qué es el acogimiento circunstancial?|Una medida excepcional, provisional y de extrema urgencia cuando no exista otro medio para la protección inmediata de sus derechos|Una forma definitiva de adopción|Una sanción aplicada al adolescente infractor|Un trámite administrativo para cambiar de nombre|Una medida excepcional, provisional y de extrema urgencia cuando no exista otro medio para la protección inmediata de sus derechos.",
+        "¿Cuál es el plazo máximo para que la autoridad judicial determine la situación tras un acogimiento circunstancial?|Treinta (30) días|Diez (10) días|Sesenta (60) días|Noventa (90) días|Treinta (30) días.",
+        "¿Qué es la guarda según el Código N° 548?|Una institución jurídica provisional de cuidado, protección y asistencia otorgada mediante Resolución Judicial sin afectar la autoridad parental|Una sanción penal aplicable a los padres|Un contrato privado entre familias|Una forma de adopción definitiva|Una institución jurídica provisional de cuidado, protección y asistencia otorgada mediante Resolución Judicial sin afectar la autoridad parental.",
+        "¿Qué finalidad tiene la tutela ordinaria?|Garantizar derechos, prestar atención integral, representar en actos civiles y administrar bienes a menores sin padres o con autoridad suspendida|Sustituir definitivamente a la familia de origen|Otorgar la patria potestad de forma permanente|Administrar los bienes del Estado a favor del menor|Garantizar derechos, prestar atención integral, representar en actos civiles y administrar bienes a menores sin padres o con autoridad suspendida.",
+        "¿Cómo se define la adopción?|Institución jurídica mediante la cual el menor en situación de adoptabilidad adquiere la calidad de hija o hijo del adoptante en forma estable, permanente y definitiva|Un acuerdo temporal de cuidado compartido|Una medida provisional de acogimiento|Un contrato de trabajo doméstico|Institución jurídica mediante la cual el menor en situación de adoptabilidad adquiere la calidad de hija o hijo del adoptante en forma estable, permanente y definitiva.",
+        "¿Cuál es la edad mínima general establecida para trabajar en Bolivia?|Catorce (14) años de edad|Doce (12) años de edad|Dieciséis (16) años de edad|Dieciocho (18) años de edad|Catorce (14) años de edad.",
+        "¿Qué actividades laborales pueden autorizar excepcionalmente las Defensorías de la Niñez y Adolescencia?|Trabajo por cuenta propia de 10 a 14 años, y trabajo por cuenta ajena de adolescentes de 12 a 14 años|Trabajo en minería y zafra de caña para mayores de 10 años|Jornadas completas de 8 horas para menores de 12 años|Trabajo nocturno en expendios de alcohol|Trabajo por cuenta propia de 10 a 14 años, y trabajo por cuenta ajena de adolescentes de 12 a 14 años.",
+        "¿Cuál es el límite de la jornada laboral diurna para un adolescente mayor de 14 años?|Máximo de ocho (8) horas diarias y cuarenta (40) horas semanales, sin exceder las diez (10) de la noche|Máximo de seis (6) horas diarias y treinta (30) semanales|Máximo de diez (10) horas diarias sin límite semanal|Cuarenta y ocho (48) horas semanales sin límite diario|Máximo de ocho (8) horas diarias y cuarenta (40) horas semanales, sin exceder las diez (10) de la noche.",
+        "¿Qué trabajos están totalmente prohibidos para menores por su peligrosidad o insalubridad?|Zafra de caña, zafra de castaña, minería (perforista, lamero, dinamitero), ladrillería, expendio de alcohol, limpieza de hospitales, entre otros|Trabajo en oficinas administrativas y atención al público|Reparto de productos en bicicleta en zonas urbanas|Apoyo en tareas escolares y bibliotecas|Zafra de caña, zafra de castaña, minería (perforista, lamero, dinamitero), ladrillería, expendio de alcohol, limpieza de hospitales, entre otros.",
+        "¿Cuál es el plazo máximo para denunciar hechos de violencia contra menores ante la Defensoría o autoridades?|Un plazo máximo de veinticuatro (24) horas de conocido el hecho|Un plazo máximo de cuarenta y ocho (48) horas|Un plazo máximo de setenta y dos (72) horas|Un plazo máximo de siete (7) días|Un plazo máximo de veinticuatro (24) horas de conocido el hecho.",
+        "¿A partir de qué edad se establece la responsabilidad penal para adolescentes?|A partir de los catorce (14) años de edad y menores de dieciocho (18) años|A partir de los doce (12) años|A partir de los dieciséis (16) años|A partir de los dieciocho (18) años|A partir de los catorce (14) años de edad y menores de dieciocho (18) años.",
+        "¿Cuál es la duración máxima del proceso penal para adolescentes desde la denuncia hasta la sentencia ejecutoriada?|No deberá exceder de ocho (8) meses|No deberá exceder de tres (3) meses|No deberá exceder de un (1) año|No deberá exceder de dos (2) años|No deberá exceder de ocho (8) meses."
+    ]};
+    const app=document.getElementById("app");
+    let st={};
+    const shuf=a=>a.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
+    function start(){
+        const qs=shuf(DOC.q).map(s=>{const p=s.split("|");return{t:p[0],c:p[1],o:shuf(p.slice(1,5)),f:p[5]||""}});
+        st={qs,n:0,ok:0};show();
+    }
+    function show(){
+        const q=st.qs[st.n];
+        app.innerHTML='<div class="bar"><div style="width:'+(st.n/st.qs.length*100)+'%"></div></div>'+
+        '<div class="box"><small>Pregunta '+(st.n+1)+' de '+st.qs.length+'</small><h3>'+q.t+'</h3><div id="o"></div><div id="f"></div></div>';
+        const o=document.getElementById("o");
+        q.o.forEach(t=>{const b=document.createElement("button");b.className="opt";b.textContent=t;b.onclick=()=>answer(b,t,q);o.appendChild(b)});
+    }
+    function answer(b,t,q){
+        [...document.querySelectorAll(".opt")].forEach(x=>{x.disabled=true;if(x.textContent===q.c)x.classList.add("ok")});
+        if(t===q.c)st.ok++;else b.classList.add("ko");
+        const last=st.n===st.qs.length-1;
+        document.getElementById("f").innerHTML=(q.f?'<p class="fb"><b>'+(t===q.c?"✔ Correcto. ":"✘ Incorrecto. ")+'</b>'+q.f+'</p>':'')+'<button class="btn" onclick="next()">'+(last?"Ver resultado":"Siguiente")+'</button>';
+    }
+    function next(){st.n++;st.n<st.qs.length?show():result()}
+    function result(){
+        const p=Math.round(st.ok/st.qs.length*100);
+        app.innerHTML='<div class="box"><h2>Resultado: '+st.ok+' / '+st.qs.length+' ('+p+'%)</h2><p>'+(p>=80?"¡Excelente dominio!":p>=60?"Buen avance, repasa los errores.":"Sigue practicando, ¡tú puedes!")+'</p><button class="btn" onclick="start()">Reintentar</button><a class="btn g" href="../index.html">Volver al Panel</a></div>';
+    }
+    start();
+    </script>
+</body>
+</html>
