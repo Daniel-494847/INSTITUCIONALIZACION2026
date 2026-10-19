@@ -89,6 +89,7 @@ function paginaQuiz(doc) {
     }
     start();
     </script>
+    <script src="../leer.js"></script>
 </body>
 </html>
 `;
